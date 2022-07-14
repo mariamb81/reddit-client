@@ -1,19 +1,35 @@
 import React from "react";
 import styled from "styled-components"
 import Subreddit from "./Subreddit"; 
+import { useSelector } from "react-redux";
+import { selectSubreddits } from "./subredditsSlice";
 
 const SideBar = () => {
+  const subreddits = useSelector(selectSubreddits);
   return(  
     <Wrapper>
       <Title>Subreddits</Title>
-      <SubredditContainer>
+      <SubredditsContainer>
+        <SubredditDiv>
           <Subreddit 
-          title={"Home"}
+          type={"Home"}
           />
-      </SubredditContainer>
+        </SubredditDiv>
+        {
+          subreddits.map((subreddit, idx) => 
+          <SubredditDiv key={idx}>
+          <Subreddit 
+          type="subreddit"
+          subredditData={subreddit}
+          />
+          </SubredditDiv>
+
+        )
+        }
+      </SubredditsContainer>
       <ButtonContainer>
-        <ViewMoreButton>
-          <h5>View More</h5>
+        <ViewMoreButton id="view-more-btn">
+          <h5 style={{margin: "0px"}}>View More</h5>
         </ViewMoreButton>
       </ButtonContainer>
 
@@ -23,6 +39,7 @@ const SideBar = () => {
 const Wrapper = styled.div`
   background-color: white;
   align-text: center;
+  width: 100%;
 `
 const Title = styled.h3`
   text-align: center;
@@ -36,9 +53,12 @@ const ViewMoreButton = styled.button`
   border-radius: 20px;
   padding: .5rem;
 `
-const SubredditContainer = styled.div`
+const SubredditsContainer = styled.div`
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+`
+const SubredditDiv = styled.div`
+  width: 100%;
 `
 const ButtonContainer = styled.div`
   display: flex;

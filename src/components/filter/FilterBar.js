@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 import { TiHome }  from 'react-icons/ti'
-import {MdOutlineLocalFireDepartment as FireIcon} from 'react-icons/md'
+import { MdOutlineLocalFireDepartment as FireIcon } from 'react-icons/md'
 import { BiBadge, BiUpArrowAlt } from 'react-icons/bi'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 
 const FilterBar = () => {
   return (
-    <Container style={{backgroundColor: "white"}}>
+    <Container style={{backgroundColor: "white", padding: "1rem 0",}}>
       <Row>
       <Col xs={6}>
       <Subreddit>
@@ -23,15 +23,15 @@ const FilterBar = () => {
       </Col>
       <Col xs={6}>
       <FilterButtonContainer>
-        <FilterButton className='fire-btn'>
+        <FilterButton id='hot-btn'>
           <FireIcon />
           <ButtonText>Hot</ButtonText>
         </FilterButton>
-        <FilterButton className='new-btn'>
+        <FilterButton id='new-btn'>
           <BiBadge />
           <ButtonText>New</ButtonText>
         </FilterButton>
-        <FilterButton className='top-btn'>
+        <FilterButton id='top-btn'>
           <BiUpArrowAlt />
           <ButtonText>Top</ButtonText>
         </FilterButton>

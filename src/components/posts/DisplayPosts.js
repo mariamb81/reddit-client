@@ -1,11 +1,20 @@
 import React from 'react'
 import Post from "./Post"
 import styled from "styled-components"
-
+import { useSelector } from 'react-redux'
+import { selectPosts } from './postsSlice'
 const DisplayPosts = () => {
+  const posts = useSelector(selectPosts);
+  console.log(posts)
+
   return (
     <Wrapper>
-        <Post />
+      {posts.map((post, idx) =>
+      <div key={idx}>
+        <Post postData={post}/>
+      </div> 
+        
+      )}
     </Wrapper>
   )
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import SearchBar from "./SearchBar";
+import SearchBar from "./search/SearchBar";
 import logo from '../assets/logo.png'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';

@@ -1,0 +1,45 @@
+#search-btn:hover {
+    color: #000;
+}
+#search-btn {
+    color: #7f7f7f;
+}
+#home-btn {
+    border-left: 4px solid #5655F0;
+    color: #5655F0;
+    background-color: #D8D8FC;
+}
+
+#subreddit-btn:hover {
+    border-left: 4px solid #5655F0;
+    color: #5655F0;
+    background-color: #D8D8FC;
+}
+
+#view-more-btn:hover {
+    background-color: #5655F0;
+}
+#view-more-btn{
+    margin-bottom: 1rem;
+}
+#hot-btn:hover {
+    background-color: #FFCB99;
+    color: #C43C00;
+}
+#new-btn:hover {
+    color: #a19101;
+    background-color: #FFFB99;
+}
+#top-btn:hover {
+    background-color: #CBD5FF;
+    color: #0039CB;
+}
+#comment-btn:hover {
+    color: #5655F0;
+}
+#upvote-btn:hover {
+    color: #FF6D00;
+}
+#downvote-btn:hover {
+    color: #5655F0;
+}

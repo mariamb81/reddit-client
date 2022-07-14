@@ -1,12 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 import { BsSearch } from 'react-icons/bs'
+import { useState } from "react";
 const SearchBar = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+  }
+  const handleSearch = () => {
+  }
   return (
     <Wrapper> 
-      <SearchInput type="text" name="query" placeholder="search"/>
+      <SearchInput 
+      type="text" 
+      name="query" 
+      placeholder="search"
+      onChange={handleInputChange}
+      />
       <div className="search logo">
-        <SearchButton>
+        <SearchButton id="search-btn">
           <BsSearch 
           size={'1.5em'}
           color={``}
