@@ -1,26 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,500;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,500;1,400&display=swap");
 :root {
-  --white-primary: #FAFAFA;
+  --white-primary: #fafafa;
   --white-dark: #545454;
-  --grey-dark: #000A12;
-  --indigo-btn: #6D55FF;
-
-
+  --grey-dark: #000a12;
+  --indigo-btn: #6d55ff;
 }
-body, html {
-  font-family: 'Work Sans', sans-serif;
+body,
+html {
+  font-family: "Work Sans", sans-serif;
   font-size: 100%;
-  
 }
 body {
-  background: #FAFAFA;
+  background: #fafafa;
   /* font-weight: 400; */
   color: #000000;
 }
 
-p {margin-bottom: 1rem;}
+p {
+  margin-bottom: 1rem;
+}
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   /* margin: 3rem 0 1.38rem; */
   /* font-weight: 400; */
   /* line-height: 1.3; */
@@ -31,15 +35,26 @@ h1 {
   font-size: 1.802rem;
 }
 
-h2 {font-size: 1.602rem;}
+h2 {
+  font-size: 1.602rem;
+}
 
-h3 {font-size: 1.424rem;}
+h3 {
+  font-size: 1.424rem;
+}
 
-h4 {font-size: 1.266rem;}
+h4 {
+  font-size: 1.266rem;
+}
 
-h5 {font-size: 1.125rem;}
+h5 {
+  font-size: 1.125rem;
+}
 
-small, .text_small {font-size: 0.889rem;}
+small,
+.text_small {
+  font-size: 0.889rem;
+}
 
 /* body {
   margin: 0;

@@ -1,28 +1,24 @@
 import React from "react";
 import styled from "styled-components";
-import { BsSearch } from 'react-icons/bs'
+import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
-  }
-  const handleSearch = () => {
-  }
+  };
+  const handleSearch = () => {};
   return (
-    <Wrapper> 
-      <SearchInput 
-      type="text" 
-      name="query" 
-      placeholder="search"
-      onChange={handleInputChange}
+    <Wrapper>
+      <SearchInput
+        type="text"
+        name="query"
+        placeholder="search"
+        onChange={handleInputChange}
       />
       <div className="search logo">
         <SearchButton id="search-btn">
-          <BsSearch 
-          size={'1.5em'}
-          color={``}
-          />
+          <BsSearch size={"1.5em"} color={``} />
         </SearchButton>
       </div>
     </Wrapper>
@@ -39,14 +35,14 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `;
 const SearchInput = styled.input`
-    border: none;
-    width: 90%;
-    padding-left: .5rem;
-`
+  border: none;
+  width: 90%;
+  padding-left: 0.5rem;
+`;
 const SearchButton = styled.button`
-    border: none;
-    background-color: white;
-    height: 100%;
-    width: 100%;
+  border: none;
+  background-color: white;
+  height: 100%;
+  width: 100%;
 `;
 export default SearchBar;

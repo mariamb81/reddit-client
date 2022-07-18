@@ -1,45 +1,47 @@
 #search-btn:hover {
-    color: #000;
+  color: #000;
 }
 #search-btn {
-    color: #7f7f7f;
+  color: #7f7f7f;
 }
 #home-btn {
-    border-left: 4px solid #5655F0;
-    color: #5655F0;
-    background-color: #D8D8FC;
+  color: #545454;
 }
-
+.active {
+  border-left: 4px solid #5655f0;
+  color: #5655f0;
+  background-color: #d8d8fc;
+}
 #subreddit-btn:hover {
-    border-left: 4px solid #5655F0;
-    color: #5655F0;
-    background-color: #D8D8FC;
+  border-left: 4px solid #5655f0;
+  color: #5655f0;
+  background-color: #d8d8fc;
 }
 
 #view-more-btn:hover {
-    background-color: #5655F0;
+  background-color: #5655f0;
 }
-#view-more-btn{
-    margin-bottom: 1rem;
+#view-more-btn {
+  margin-bottom: 1rem;
 }
 #hot-btn:hover {
-    background-color: #FFCB99;
-    color: #C43C00;
+  background-color: #ffcb99;
+  color: #c43c00;
 }
 #new-btn:hover {
-    color: #a19101;
-    background-color: #FFFB99;
+  color: #a19101;
+  background-color: #fffb99;
 }
 #top-btn:hover {
-    background-color: #CBD5FF;
-    color: #0039CB;
+  background-color: #cbd5ff;
+  color: #0039cb;
 }
 #comment-btn:hover {
-    color: #5655F0;
+  color: #5655f0;
 }
 #upvote-btn:hover {
-    color: #FF6D00;
+  color: #ff6d00;
 }
 #downvote-btn:hover {
-    color: #5655F0;
+  color: #5655f0;
 }
