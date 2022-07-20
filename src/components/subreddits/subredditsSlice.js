@@ -1,12 +1,20 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // import { subreddits } from "../../functions/testData";
-import { getFormattedSubredditData } from "./getSubreddits";
+import { getFormattedSubredditData, formatSubredditData, getMoreSubreddits } from "./getSubreddits";
 
 export const fetchSubreddits = createAsyncThunk(
   "subreddits/fetchSubreddits",
   async () => {
     const response = await getFormattedSubredditData();
     return response;
+  }
+);
+export const fetchMoreSubreddits = createAsyncThunk(
+  "subreddits/fetchMoreSubreddits",
+  async () => {
+    const response = await getMoreSubreddits();
+    const data = await formatSubredditData(response);
+    return data;
   }
 );
 
@@ -16,11 +24,13 @@ const subredditsSlice = createSlice({
     subreddits: [],
     status: "idle",
     error: null,
-    currentSubreddit: "home",
+    currentSubreddit: "Home",
+    currentSubredditIcon: "",
   },
   reducers: {
     selectSubreddit: (state, action) => {
-        state.currentSubreddit = action.payload;
+        state.currentSubreddit = action.payload.name;
+        state.currentSubredditIcon = action.payload.icon;
     }
   },
   extraReducers(builder) {
@@ -30,12 +40,23 @@ const subredditsSlice = createSlice({
       })
       .addCase(fetchSubreddits.fulfilled, (state, action) => {
         state.status = "succeded";
-        state.subreddits = state.subreddits.concat(action.payload);
+        state.subreddits = action.payload;
       })
       .addCase(fetchSubreddits.rejected, (state) => {
         state.status = "failed";
         state.error = "Subreddits could not be retrieved";
-      });
+      })
+      .addCase(fetchMoreSubreddits.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchMoreSubreddits.fulfilled, (state, action) => {
+        state.status = "succeded";
+        state.subreddits = state.subreddits.concat(action.payload);
+      })
+      .addCase(fetchMoreSubreddits.rejected, (state) => {
+        state.status = "failed";
+        state.error = "Subreddits could not be retrieved";
+      })
   },
 });
 export const { selectSubreddit } = subredditsSlice.actions;

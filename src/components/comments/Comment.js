@@ -4,6 +4,7 @@ import "./getComments";
 import { useSelector } from "react-redux";
 import { selectCommentsStatus } from "./commentsSlice";
 import { formatTSC } from "../../functions/utilities";
+import Placeholder from "react-bootstrap/Placeholder";
 const Comment = ({ commentData }) => {
   const commentsStatus = useSelector(selectCommentsStatus);
   if (commentsStatus !== "loading") {
@@ -15,7 +16,21 @@ const Comment = ({ commentData }) => {
       </Wrapper>
     );
   }
-  return <div></div>;
+  return (      
+  <Wrapper>
+    <Placeholder as="p" animation="wave">
+    <Placeholder xs={6} bg="secondary" />
+    </Placeholder>
+    <Placeholder as="p" animation="wave">
+          <Placeholder xs={8} bg="secondary" />
+    </Placeholder>
+    <Placeholder as="p" animation="wave">
+          <Placeholder xs={12} bg="secondary" />
+    </Placeholder>
+    <Placeholder as="p" animation="wave">
+          <Placeholder xs={8} bg="secondary" />
+          </Placeholder>
+  </Wrapper>);
 };
 const Wrapper = styled.div`
   width: 100%;

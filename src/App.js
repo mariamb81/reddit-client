@@ -9,17 +9,7 @@ import FilterBar from "./components/filter/FilterBar";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
-import {
-  selectModalIsOpen,
-  toggleModal,
-} from "./components/comments/commentsSlice";
-import { useSelector, useDispatch } from "react-redux";
-import CommentsModal from "./components/comments/CommentsModal";
 function App() {
-  const modalOpen = useSelector(selectModalIsOpen);
-  const dispatch = useDispatch();
-  if(!modalOpen) {
     return (
     <Container fluid>
           <Row>
@@ -35,7 +25,6 @@ function App() {
             </Col>
           </Row>
         </Container>)
-      }
 }
 
 export default App;

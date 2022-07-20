@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Subreddit from "./Subreddit";
 import { useSelector, useDispatch } from "react-redux";
-import { selectSubreddits, fetchSubreddits } from "./subredditsSlice";
+import { selectSubreddits, fetchSubreddits, fetchMoreSubreddits } from "./subredditsSlice";
 
 const SideBar = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,9 @@ const SideBar = () => {
       dispatch(fetchSubreddits());
     }
   }, [subredditsStatus, dispatch]);
-  console.log(subreddits);
+  const handleViewMore = () => {
+    dispatch(fetchMoreSubreddits());
+  };
 
   return (
     <Wrapper>
@@ -29,7 +31,10 @@ const SideBar = () => {
         ))}
       </SubredditsContainer>
       <ButtonContainer>
-        <ViewMoreButton id="view-more-btn">
+        <ViewMoreButton 
+        id="view-more-btn"
+        onClick={handleViewMore}
+        >
           <h5 style={{ margin: "0px" }}>View More</h5>
         </ViewMoreButton>
       </ButtonContainer>
@@ -52,6 +57,9 @@ const ViewMoreButton = styled.button`
   border: none;
   border-radius: 20px;
   padding: 0.5rem;
+  :hover {
+    background-color: #5655f0;
+  }
 `;
 const SubredditsContainer = styled.div`
   display: flex;

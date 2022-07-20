@@ -4,7 +4,6 @@ import { getFormattedComments } from "./getComments";
 export const fetchComments = createAsyncThunk(
   "comments/fetchComments",
   async (permalink) => {
-    console.log(permalink);
     const response = await getFormattedComments(permalink);
     return response;
   }

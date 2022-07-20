@@ -7,38 +7,10 @@
 #home-btn {
   color: #545454;
 }
-.active {
-  border-left: 4px solid #5655f0;
-  color: #5655f0;
-  background-color: #d8d8fc;
-}
-#subreddit-btn:hover {
-  border-left: 4px solid #5655f0;
-  color: #5655f0;
-  background-color: #d8d8fc;
-}
-
-#view-more-btn:hover {
-  background-color: #5655f0;
-}
 #view-more-btn {
   margin-bottom: 1rem;
 }
-#hot-btn:hover {
-  background-color: #ffcb99;
-  color: #c43c00;
-}
-#new-btn:hover {
-  color: #a19101;
-  background-color: #fffb99;
-}
-#top-btn:hover {
-  background-color: #cbd5ff;
-  color: #0039cb;
-}
-#comment-btn:hover {
-  color: #5655f0;
-}
+
 #upvote-btn:hover {
   color: #ff6d00;
 }

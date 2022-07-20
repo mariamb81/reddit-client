@@ -10,7 +10,7 @@ const DisplayComments = () => {
     return (
       <Wrapper>
         {comments.map((comment, idx) => (
-          <div>
+          <div key={idx}>
             <Comment commentData={comment} />
           </div>
         ))}

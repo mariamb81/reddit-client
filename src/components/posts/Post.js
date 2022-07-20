@@ -1,51 +1,47 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { TbArrowBigDown, TbArrowBigTop } from "react-icons/tb";
-import { MdOutlineModeComment } from "react-icons/md";
+import { MdOutlineModeComment, MdLink} from "react-icons/md";
 import { useState } from "react";
 import Placeholder from "react-bootstrap/Placeholder";
+import VideoPlayer from "./VideoPlayer";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchComments,
   selectCommentsStatus,
-  toggleModal,
 } from "../comments/commentsSlice";
 import { getSubredditIconByTitle } from "./getPosts";
-import { useMediaQuery } from "react-responsive";
+// import { useMediaQuery } from "react-responsive";
 import DisplayComments from "../comments/DisplayComments";
-import { selectComments } from "../comments/commentsSlice";
 import { formatTSC } from "../../functions/utilities";
+
 const Post = ({ postData }) => {
   const [iconImg, setIconImg] = useState("");
   const [commentsOpen, setCommentsOpen] = useState(false);
-
-  useEffect(() => {
-    if (iconImg === "") {
-      getSubredditIconByTitle(postData.subreddit.name)
-        .then((data) => {
-          setIconImg(data);
-        })
-        .catch((err) => console.log(err));
-    }
-  }, [iconImg]);
-
   const dispatch = useDispatch();
   const postsStatus = useSelector((state) => state.posts.status);
   const commentsStatus = useSelector(selectCommentsStatus);
+  const external_url = postData["external_url"];
 
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  useEffect(() => {
+      getSubredditIconByTitle(postData.subreddit.name)
+      .then((data) => {
+        setIconImg(data);
+      })
+      .catch((err) => console.log(err));
+
+  }, [iconImg, postsStatus, postData.subreddit.name]);
+  // const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const authorDateString = `Posted by: ${postData.author} ${formatTSC(
     postData["time_since_created"]
   )}`;
  
   const toggleComments = () => {
     if (!commentsOpen) {
-      console.log("open comments");
       setCommentsOpen(true);
       dispatch(fetchComments(postData.permalink));
     } else {
       setCommentsOpen(false);
-      console.log("close comments");
     }
   };
 
@@ -59,6 +55,33 @@ const Post = ({ postData }) => {
       );
     }
   };
+  const renderContent = () => {
+      if(postData.media.thumbnail !== null | postData["is_video"]){
+    
+    if(postData["is_video"]){
+      return (
+        <VideoPlayer data={postData.media.video} title={postData.title} />
+      );
+    } else {
+        return(
+        <Thumbnail src={postData.media.thumbnail}
+        alt={`${postData.title} thumbnail`}
+        ></Thumbnail>
+        )
+    }
+  }
+  return (<></>)
+  }
+  const renderLink = () => {
+    return (
+    <div>
+    <MdLink size={"1.3rem"}></MdLink>
+    <a href={external_url} target="_blank" rel="noreferrer">
+      {postData.domain}
+    </a>
+    </div>
+    )
+  }
   if (postsStatus !== "loading") {
     return (
       <Wrapper>
@@ -69,15 +92,17 @@ const Post = ({ postData }) => {
           </Subreddit>
 
           <Subtitle>{authorDateString}</Subtitle>
-        </Header>
         <h5>{postData.title}</h5>
-        <Content>
-          {postData.media.thumbnail.includes("https") ? (
-            <Thumbnail src={postData.media.thumbnail}></Thumbnail>
-          ) : (
-            <></>
-          )}
+        </Header>
+        <Content style={{backgroundColor: "white"}}>
+          {renderContent()} 
         </Content>
+        <div>
+          {postData["is_ext"] ? 
+          renderLink()
+          : <></>
+          } 
+        </div>
         <Footer>
           <Upvotes>
             <Button id="upvote-btn">
@@ -100,22 +125,36 @@ const Post = ({ postData }) => {
         {renderComments()}
       </Wrapper>
     );
-  } else {
+  } 
+  else {
     return (
       <Wrapper>
         <Header>
           <Subreddit>
             <Icon subredditIcon={postData.subreddit.icon}></Icon>
-            <Placeholder xs={4} bg="secondary" />
+            <PlaceholderDiv>
+            <Placeholder animation="wave">
+              <Placeholder xs={6} bg="secondary" />
+            </Placeholder>
+            </PlaceholderDiv>
+            
           </Subreddit>
 
-          <Subtitle>
-            <Placeholder xs={6} bg="secondary" />
-          </Subtitle>
+            <PlaceholderDiv>
+              <Placeholder animation="wave">
+               <Placeholder xs={6} bg="secondary" />
+               </Placeholder>
+            </PlaceholderDiv>
         </Header>
         <h5>
-          <Placeholder xs={12} bg="secondary" />
+          <PlaceholderDiv>
+          <Placeholder animation="wave">
+            <Placeholder xs={12} bg="secondary" />
+          </Placeholder>
+          <Placeholder as="p" animation="wave">
           <Placeholder xs={8} bg="secondary" />
+          </Placeholder>
+          </PlaceholderDiv>
         </h5>
         <Content
           style={{ aspectRatio: "1/1", backgroundColor: "#bdbdbd" }}
@@ -126,9 +165,6 @@ const Post = ({ postData }) => {
               <TbArrowBigTop size={"1.3rem"} />
             </Button>
             <Subtitle style={{ margin: "0 4px" }}>
-              <>
-                <Placeholder xs={2} bg="secondary" />
-              </>
             </Subtitle>
             <Button id="downvote-btn">
               <TbArrowBigDown size={"1.3rem"} />
@@ -137,9 +173,6 @@ const Post = ({ postData }) => {
           <CommentsButton id="comment-btn">
             <MdOutlineModeComment size={"1.3rem"} />
             <Subtitle style={{ margin: "0 4px" }}>
-              <>
-                <Placeholder xs={2} bg="secondary" />
-              </>
             </Subtitle>
           </CommentsButton>
         </Footer>
@@ -150,15 +183,18 @@ const Post = ({ postData }) => {
 const Wrapper = styled.div`
   background-color: white;
   padding: 35px 30px;
+  width: 100%;
+  flex-wrap: wrap
   margin: 10px 0;
   --grey-primary: #545454;
 `;
 const Header = styled.div`
   margin-bottom: 1rem;
+  width:100%;
 `;
 const Content = styled.div`
   background-color: grey;
-  object-fit: contain;
+  width: 100%;
 `;
 const Icon = styled.div`
   width: 30px;
@@ -185,6 +221,7 @@ const Subtitle = styled.p`
 `;
 const Footer = styled.div`
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   margin-top: 10px;
@@ -199,6 +236,9 @@ const CommentsButton = styled.button`
   align-items: center;
   border: none;
   background-color: white;
+  :hover {
+    color: #5655f0;
+  }
 `;
 const Button = styled.button`
   border: none;
@@ -210,5 +250,8 @@ const Thumbnail = styled.img`
 `;
 const CommentsDisplay = styled.div`
   background-color: grey;
+`;
+const PlaceholderDiv = styled.div`
+  width: 50%;
 `;
 export default Post;
