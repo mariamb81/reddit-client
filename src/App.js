@@ -11,7 +11,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 function App() {
   return (
-    <Container fluid className="App">
+    <Container fluid>
       <Row>
         <NavBar />
       </Row>
@@ -19,7 +19,7 @@ function App() {
         <Col sm={4}>
           <SideBar />
         </Col>
-        <Col>
+        <Col style={{margin: " 0 2rem"}}>
           <FilterBar />
           <DisplayPosts />
         </Col>
