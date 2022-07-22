@@ -15,7 +15,7 @@ React, Redux
 ## Demo
 ![subreddit page](/src/assets/screenshots/sport-subreddit.png)
 ![search results](/src/assets/screenshots/search.png)
-![comments](/src/assets/screenshots/comments)
+![comments](/src/assets/screenshots/comments.png)
 ## What I learned
 - Unit and end-to-end testing with React
 ## Try it out
