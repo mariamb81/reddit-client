@@ -20,9 +20,9 @@ const NavBar = () => {
         <Col sm={7} xs={9}>
           <SearchBar />
         </Col>
-        <Col sm={1} xs={2} style={{alignItems: "center"}}>
+        <Col sm={1} xs={2} style={{ alignItems: "center" }}>
           <Button>
-            <FiMoreVertical size={"2em"}/>
+            <FiMoreVertical size={"2em"} />
           </Button>
         </Col>
       </Row>
@@ -48,7 +48,7 @@ const Button = styled.button`
   background-color: white;
   border: none;
   color: ##545454 !important;
-  margin-top: 8px
+  margin-top: 8px;
 `;
 
 export default NavBar;

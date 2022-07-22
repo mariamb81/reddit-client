@@ -2,7 +2,11 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import Subreddit from "./Subreddit";
 import { useSelector, useDispatch } from "react-redux";
-import { selectSubreddits, fetchSubreddits, fetchMoreSubreddits } from "./subredditsSlice";
+import {
+  selectSubreddits,
+  fetchSubreddits,
+  fetchMoreSubreddits,
+} from "./subredditsSlice";
 
 const SideBar = () => {
   const dispatch = useDispatch();
@@ -31,10 +35,7 @@ const SideBar = () => {
         ))}
       </SubredditsContainer>
       <ButtonContainer>
-        <ViewMoreButton 
-        id="view-more-btn"
-        onClick={handleViewMore}
-        >
+        <ViewMoreButton id="view-more-btn" onClick={handleViewMore}>
           <h5 style={{ margin: "0px" }}>View More</h5>
         </ViewMoreButton>
       </ButtonContainer>

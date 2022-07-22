@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
 import { TiHome } from "react-icons/ti";
 import { MdOutlineLocalFireDepartment as FireIcon } from "react-icons/md";
@@ -12,62 +12,63 @@ import { fetchPostsByFilter } from "../posts/postsSlice";
 const FilterBar = () => {
   const dispatch = useDispatch();
   const currentSubreddit = useSelector(selectCurrentSubreddit);
-  const currentSubredditIcon = useSelector((state) => state.subreddits.currentSubredditIcon);
-  const [ selected, setSelected ] = useState("");
+  const currentSubredditIcon = useSelector(
+    (state) => state.subreddits.currentSubredditIcon
+  );
   const handlefilterCurrentSubreddit = (filter) => {
-  if(currentSubreddit !== 'Home')
-    {
-    dispatch(fetchPostsByFilter({
-      subreddit: currentSubreddit, 
-      filter: filter
-    }));
-    setSelected(filter);
-  }
-  }
-  const renderBreadcrumb = () => {
-    if(currentSubreddit === 'Home') {
-      return (
-        <Subreddit>
-            <div className="icon">
-              <TiHome size={"2rem"} />
-            </div>
-            <Title>Home</Title>
-          </Subreddit>
+    if (currentSubreddit !== "Home") {
+      dispatch(
+        fetchPostsByFilter({
+          subreddit: currentSubreddit,
+          filter: filter,
+        })
       );
     }
-
-      return(
+  };
+  const renderBreadcrumb = () => {
+    if (currentSubreddit === "Home") {
+      return (
+        <Subreddit>
+          <div className="icon">
+            <TiHome size={"2rem"} />
+          </div>
+          <Title>Home</Title>
+        </Subreddit>
+      );
+    }
+    if (currentSubreddit === null) {
+      return <div></div>;
+    }
+    return (
       <Subreddit>
         <Icon subredditIcon={currentSubredditIcon}></Icon>
         <Title>{currentSubreddit}</Title>
       </Subreddit>
-      );
-  }
+    );
+  };
   return (
     <Container style={{ backgroundColor: "white", padding: "1rem 0" }}>
       <Row>
-        <Col xs={6}>
-          {renderBreadcrumb()}
-        </Col>
+        <Col xs={6}>{renderBreadcrumb()}</Col>
         <Col xs={6}>
           <FilterButtonContainer>
             <HotButton
-            id="hot-btn"
-            onClick={() => handlefilterCurrentSubreddit("hot")}
+              id="hot-btn"
+              onClick={() => handlefilterCurrentSubreddit("hot")}
             >
               <FireIcon />
               <ButtonText>Hot</ButtonText>
             </HotButton>
-            <NewButton 
-            id="new-btn"
-            onClick={() => handlefilterCurrentSubreddit("new")}
+            <NewButton
+              id="new-btn"
+              onClick={() => handlefilterCurrentSubreddit("new")}
             >
               <BiBadge />
               <ButtonText>New</ButtonText>
             </NewButton>
             <TopButton
-            id="top-btn"
-            onClick={() => handlefilterCurrentSubreddit("top")}
+              id="top-btn"
+              onClick={() => handlefilterCurrentSubreddit("top")}
             >
               <BiUpArrowAlt />
               <ButtonText>Top</ButtonText>

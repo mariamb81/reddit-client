@@ -10,21 +10,22 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 function App() {
-    return (
+  return (
     <Container fluid>
-          <Row>
-            <NavBar />
-          </Row>
-          <Row>
-            <Col sm={4}>
-              <SideBar />
-            </Col>
-            <Col>
-              <FilterBar />
-              <DisplayPosts />
-            </Col>
-          </Row>
-        </Container>)
+      <Row>
+        <NavBar />
+      </Row>
+      <Row>
+        <Col sm={4}>
+          <SideBar />
+        </Col>
+        <Col>
+          <FilterBar />
+          <DisplayPosts />
+        </Col>
+      </Row>
+    </Container>
+  );
 }
 
 export default App;

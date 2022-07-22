@@ -17,6 +17,13 @@ const DisplayComments = () => {
       </Wrapper>
     );
   }
+  if (comments.length === 0) {
+    return (
+      <Wrapper>
+        <p>No Comments</p>
+      </Wrapper>
+    );
+  }
   return (
     <Wrapper>
       <p>Loading...</p>

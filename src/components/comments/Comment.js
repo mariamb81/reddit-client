@@ -16,21 +16,22 @@ const Comment = ({ commentData }) => {
       </Wrapper>
     );
   }
-  return (      
-  <Wrapper>
-    <Placeholder as="p" animation="wave">
-    <Placeholder xs={6} bg="secondary" />
-    </Placeholder>
-    <Placeholder as="p" animation="wave">
-          <Placeholder xs={8} bg="secondary" />
-    </Placeholder>
-    <Placeholder as="p" animation="wave">
-          <Placeholder xs={12} bg="secondary" />
-    </Placeholder>
-    <Placeholder as="p" animation="wave">
-          <Placeholder xs={8} bg="secondary" />
-          </Placeholder>
-  </Wrapper>);
+  return (
+    <Wrapper>
+      <Placeholder as="p" animation="wave">
+        <Placeholder xs={6} bg="secondary" />
+      </Placeholder>
+      <Placeholder as="p" animation="wave">
+        <Placeholder xs={8} bg="secondary" />
+      </Placeholder>
+      <Placeholder as="p" animation="wave">
+        <Placeholder xs={12} bg="secondary" />
+      </Placeholder>
+      <Placeholder as="p" animation="wave">
+        <Placeholder xs={8} bg="secondary" />
+      </Placeholder>
+    </Wrapper>
+  );
 };
 const Wrapper = styled.div`
   width: 100%;

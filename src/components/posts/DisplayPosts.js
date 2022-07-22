@@ -8,19 +8,19 @@ const DisplayPosts = () => {
   const dispatch = useDispatch();
   const posts = useSelector(selectPosts);
   const postsStatus = useSelector((state) => state.posts.status);
-  const postsError= useSelector((state) => state.posts.error);
+  const postsError = useSelector((state) => state.posts.error);
 
   useEffect(() => {
     if (postsStatus === "idle") {
       dispatch(fetchPosts());
     }
   }, [dispatch, postsStatus]);
-  if(postsError){
-    return(
+  if (postsError) {
+    return (
       <div>
         <p>No posts to display</p>
       </div>
-    )
+    );
   }
   return (
     <Wrapper>

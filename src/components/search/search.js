@@ -1,4 +1,3 @@
-
 // returns search query
 export const getSearchQuery = (searchTerm) => {
   searchTerm = searchTerm.toLowerCase();

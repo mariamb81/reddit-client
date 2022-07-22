@@ -2,21 +2,21 @@ import React from "react";
 import styled from "styled-components";
 import { BsSearch } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { setSearchQuery,selectSearchQuery } from "./searchSlice";
+import { setSearchQuery, selectSearchQuery } from "./searchSlice";
 import { fetchPostsBySearchQuery } from "../posts/postsSlice";
 const SearchBar = () => {
   // const [searchTerm, setSearchTerm] = useState("");
-  const dispatch = useDispatch()
-  const searchQuery = useSelector(selectSearchQuery)
+  const dispatch = useDispatch();
+  const searchQuery = useSelector(selectSearchQuery);
   const handleInputChange = (e) => {
     const searchTerm = e.target.value;
     dispatch(setSearchQuery(searchTerm));
   };
   const handleSearch = () => {
-    if(searchQuery !== "") {
+    if (searchQuery !== "") {
       dispatch(fetchPostsBySearchQuery(searchQuery));
     }
-  }
+  };
   return (
     <Wrapper>
       <SearchInput
@@ -26,10 +26,7 @@ const SearchBar = () => {
         onChange={handleInputChange}
       />
       <div className="search logo">
-        <SearchButton 
-        id="search-btn"
-        onClick={handleSearch}
-        >
+        <SearchButton id="search-btn" onClick={handleSearch}>
           <BsSearch size={"1.5em"} color={``} />
         </SearchButton>
       </div>

@@ -4,60 +4,54 @@ import { TiHome } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
 import { selectSubreddit } from "./subredditsSlice";
 import { fetchPostsBySubreddit, fetchPosts } from "../posts/postsSlice";
-import Placeholder from 'react-bootstrap/Placeholder';
+import Placeholder from "react-bootstrap/Placeholder";
 
 const Subreddit = ({ subredditData, type = "Home" }) => {
   const dispatch = useDispatch();
   const handleSelectSubreddit = () => {
-    if(type === "Home"){
-      dispatch(fetchPosts())
-      dispatch(selectSubreddit({
-        name: "Home",
-        icon: "",
-      }))
-    } else{
-      dispatch(selectSubreddit({
-        name: subredditData["display_name"],
-        icon: subredditData.icon,
-      }))
-      dispatch(fetchPostsBySubreddit(subredditData["display_name"]))
+    if (type === "Home") {
+      dispatch(fetchPosts());
+      dispatch(
+        selectSubreddit({
+          name: "Home",
+          icon: "",
+        })
+      );
+    } else {
+      dispatch(
+        selectSubreddit({
+          name: subredditData["display_name"],
+          icon: subredditData.icon,
+        })
+      );
+      dispatch(fetchPostsBySubreddit(subredditData["display_name"]));
     }
-
   };
   const subredditsStatus = useSelector((state) => state.subreddits.status);
 
   if (type === "Home") {
     return (
-      <Wrapper 
-      id="home-btn"
-      onClick={handleSelectSubreddit}
-      >
+      <Wrapper id="home-btn" onClick={handleSelectSubreddit}>
         <TiHome size={"2rem"} />
         <div className="title">
           <SubredditTitle>Home</SubredditTitle>
         </div>
       </Wrapper>
     );
-  } 
-  else if (subredditsStatus === "loading") {
-    return(
-    <Wrapper
-    >
-      <Icon></Icon>
-      <div className="title" style={{width: "75%"}}>
-      <Placeholder as="p" animation="wave">
-            <Placeholder xs={6} />
-      </Placeholder>
-      </div>
-    </Wrapper>
-    );
-  }
-  else {
+  } else if (subredditsStatus === "loading") {
     return (
-      <Wrapper 
-      id="subreddit-btn"
-      onClick={handleSelectSubreddit}
-      >
+      <Wrapper>
+        <Icon></Icon>
+        <div className="title" style={{ width: "75%" }}>
+          <Placeholder as="p" animation="wave">
+            <Placeholder xs={6} />
+          </Placeholder>
+        </div>
+      </Wrapper>
+    );
+  } else {
+    return (
+      <Wrapper id="subreddit-btn" onClick={handleSelectSubreddit}>
         <Icon subredditIcon={subredditData.icon}></Icon>
         <div className="title">
           <SubredditTitle>{subredditData["display_name"]}</SubredditTitle>

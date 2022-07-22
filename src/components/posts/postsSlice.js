@@ -1,6 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // import { posts } from "../../functions/testData";
-import { getFormattedHomepageData, getFormattedFilteredData, formatPostData, getPostsByFilter, getFormattedSearchData} from "./getPosts";
+import {
+  getFormattedHomepageData,
+  getFormattedFilteredData,
+  formatPostData,
+  getPostsByFilter,
+  getFormattedSearchData,
+} from "./getPosts";
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   const response = await getFormattedHomepageData();
@@ -10,25 +16,28 @@ export const fetchPostsBySubreddit = createAsyncThunk(
   "posts/fetchPostsBySubreddit",
   async (title) => {
     const response = await getFormattedFilteredData(title);
-    return response; 
+    return response;
   }
 );
 export const fetchPostsByFilter = createAsyncThunk(
   "posts/fetchPostsByFilter",
-  async ({subreddit, filter}) => {
+  async ({ subreddit, filter }) => {
     const response = await getPostsByFilter({
-      subreddit: subreddit, 
-      filter: filter
+      subreddit: subreddit,
+      filter: filter,
     });
-    const data = await formatPostData(response)
-    return data; 
+    const data = await formatPostData(response);
+    return data;
   }
 );
 
-export const fetchPostsBySearchQuery = createAsyncThunk("search/fetchPostsBySearchQuery", async (searchQuery) => {
+export const fetchPostsBySearchQuery = createAsyncThunk(
+  "search/fetchPostsBySearchQuery",
+  async (searchQuery) => {
     const response = await getFormattedSearchData(searchQuery);
     return response;
-})
+  }
+);
 const postsSlice = createSlice({
   name: "posts",
   initialState: {
@@ -36,8 +45,7 @@ const postsSlice = createSlice({
     status: "idle",
     error: null,
   },
-  reducers: {
-  },
+  reducers: {},
   extraReducers(builder) {
     builder
       .addCase(fetchPosts.pending, (state) => {

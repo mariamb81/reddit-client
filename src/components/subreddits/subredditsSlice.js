@@ -1,6 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // import { subreddits } from "../../functions/testData";
-import { getFormattedSubredditData, formatSubredditData, getMoreSubreddits } from "./getSubreddits";
+import {
+  getFormattedSubredditData,
+  formatSubredditData,
+  getMoreSubreddits,
+} from "./getSubreddits";
 
 export const fetchSubreddits = createAsyncThunk(
   "subreddits/fetchSubreddits",
@@ -29,9 +33,9 @@ const subredditsSlice = createSlice({
   },
   reducers: {
     selectSubreddit: (state, action) => {
-        state.currentSubreddit = action.payload.name;
-        state.currentSubredditIcon = action.payload.icon;
-    }
+      state.currentSubreddit = action.payload.name;
+      state.currentSubredditIcon = action.payload.icon;
+    },
   },
   extraReducers(builder) {
     builder
@@ -56,10 +60,11 @@ const subredditsSlice = createSlice({
       .addCase(fetchMoreSubreddits.rejected, (state) => {
         state.status = "failed";
         state.error = "Subreddits could not be retrieved";
-      })
+      });
   },
 });
 export const { selectSubreddit } = subredditsSlice.actions;
-export const selectCurrentSubreddit = (state) => state.subreddits.currentSubreddit;
+export const selectCurrentSubreddit = (state) =>
+  state.subreddits.currentSubreddit;
 export const selectSubreddits = (state) => state.subreddits.subreddits;
 export default subredditsSlice.reducer;
