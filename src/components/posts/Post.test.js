@@ -1,2 +1,6 @@
 import React from "react";
-import { getHomePageData, formatPostData } from "./getPosts";
+import Post from './Post'
+import { render } from "@testing-library/react";
+
+test('renders Post element', () => {
+});

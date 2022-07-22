@@ -36,5 +36,6 @@ const Wrapper = styled.div`
   background-color: #fafafa;
   justify-content: center;
   margin: 1rem 0;
+  border-radius: 8px;
 `;
 export default DisplayPosts;

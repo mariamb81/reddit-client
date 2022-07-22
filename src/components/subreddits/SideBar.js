@@ -46,6 +46,7 @@ const Wrapper = styled.div`
   background-color: white;
   align-text: center;
   width: 100%;
+  border-radius: 8px;
 `;
 const Title = styled.h3`
   text-align: center;

@@ -11,11 +11,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 function App() {
   return (
-    <Container fluid>
+    <Container fluid className="App">
       <Row>
         <NavBar />
       </Row>
-      <Row>
+      <Row className="content">
         <Col sm={4}>
           <SideBar />
         </Col>

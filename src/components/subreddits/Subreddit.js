@@ -66,6 +66,7 @@ const Wrapper = styled.button`
   display: flex;
   align-items: center;
   margin: 0.75rem 0;
+  padding-left: 1rem;
   border: none;
   :hover {
     border-left: 4px solid #5655f0;
@@ -77,6 +78,7 @@ const SubredditTitle = styled.p`
   color: #54;
   margin: 0;
   margin-left: 0.5rem;
+  max-width: 100%;
 `;
 const Icon = styled.div`
   width: 38px;

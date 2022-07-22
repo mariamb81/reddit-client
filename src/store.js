@@ -11,4 +11,10 @@ const store = configureStore({
     search: searchReducer,
   },
 });
+export const allReducers = {
+  posts: postsReducer,
+  subreddits: subredditsReducer,
+  comments: commentsReducer,
+  search: searchReducer,
+}
 export default store;

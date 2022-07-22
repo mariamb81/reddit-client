@@ -1,3 +1,4 @@
+
 export const base_url = "https://www.reddit.com";
 //returns the time since the post was created and the time unit (hours, days, months, years)
 export const isImage = (url) => {

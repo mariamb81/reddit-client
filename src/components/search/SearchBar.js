@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSearchQuery, selectSearchQuery } from "./searchSlice";
 import { fetchPostsBySearchQuery } from "../posts/postsSlice";
 const SearchBar = () => {
-  // const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
   const searchQuery = useSelector(selectSearchQuery);
   const handleInputChange = (e) => {

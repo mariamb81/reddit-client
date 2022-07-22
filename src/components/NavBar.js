@@ -9,7 +9,7 @@ import Col from "react-bootstrap/Col";
 import { FiMoreVertical } from "react-icons/fi";
 const NavBar = () => {
   return (
-    <Container style={{ backgroundColor: "white" }}>
+    <Container style={{ backgroundColor: "white", padding: "1rem" }}>
       <Row>
         <Col sm={4} xs={12}>
           <LogoDiv>

@@ -47,10 +47,10 @@ const FilterBar = () => {
     );
   };
   return (
-    <Container style={{ backgroundColor: "white", padding: "1rem 0" }}>
+    <Container style={{ backgroundColor: "white", padding: "1rem 1rem", borderRadius: "8px" }}>
       <Row>
-        <Col xs={6}>{renderBreadcrumb()}</Col>
-        <Col xs={6}>
+        <Col xs={8}>{renderBreadcrumb()}</Col>
+        <Col xs={4}>
           <FilterButtonContainer>
             <HotButton
               id="hot-btn"
@@ -102,6 +102,7 @@ const FilterButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
   color: #545454;
+  padding-right: 1rem;
 `;
 const HotButton = styled.button`
   display: flex;
