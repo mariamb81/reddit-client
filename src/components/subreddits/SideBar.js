@@ -35,8 +35,10 @@ const SideBar = () => {
         ))}
       </SubredditsContainer>
       <ButtonContainer>
-        <ViewMoreButton id="view-more-btn" onClick={handleViewMore}>
-          <h5 style={{ margin: "0px" }}>View More</h5>
+        <ViewMoreButton 
+        id="view-more-btn" 
+        onClick={handleViewMore}>
+          <p style={{ margin: "0px" }}>View More</p>
         </ViewMoreButton>
       </ButtonContainer>
     </Wrapper>
@@ -58,6 +60,7 @@ const ViewMoreButton = styled.button`
   color: white;
   border: none;
   border-radius: 20px;
+  font-size: 1.125rem;
   padding: 0.5rem;
   :hover {
     background-color: #5655f0;

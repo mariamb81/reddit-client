@@ -17,16 +17,16 @@ const DisplayComments = () => {
       </Wrapper>
     );
   }
-  if (comments.length === 0) {
+  else if (commentsStatus === "loading") {
     return (
-      <Wrapper>
-        <p>No Comments</p>
-      </Wrapper>
-    );
+    <Wrapper>
+      <p>Loading...</p>
+    </Wrapper>
+  );
   }
   return (
     <Wrapper>
-      <p>Loading...</p>
+      <p>No Comments Available</p>
     </Wrapper>
   );
 };

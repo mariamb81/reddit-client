@@ -47,39 +47,52 @@ const FilterBar = () => {
     );
   };
   return (
-    <Container style={{ backgroundColor: "white", padding: "1rem 1rem", borderRadius: "8px" }}>
+    <Container style={containerStyles}>
       <Row>
-        <Col xs={8}>{renderBreadcrumb()}</Col>
-        <Col xs={4}>
+        <Col sm={7}>{renderBreadcrumb()}</Col>
+        <Col sm={5}>
           <FilterButtonContainer>
-            <HotButton
+            <Row>
+              <Col sm={4} xs={4}>
+              <HotButton
               id="hot-btn"
               onClick={() => handlefilterCurrentSubreddit("hot")}
             >
               <FireIcon />
               <ButtonText>Hot</ButtonText>
             </HotButton>
-            <NewButton
+              </Col>
+              <Col sm={4} xs={4}>
+              <NewButton
               id="new-btn"
               onClick={() => handlefilterCurrentSubreddit("new")}
             >
-              <BiBadge />
+              <BiBadge/>
               <ButtonText>New</ButtonText>
             </NewButton>
-            <TopButton
+              </Col>
+              <Col sm={4} xs={4}>
+              <TopButton
               id="top-btn"
               onClick={() => handlefilterCurrentSubreddit("top")}
             >
               <BiUpArrowAlt />
               <ButtonText>Top</ButtonText>
             </TopButton>
+              </Col>
+            </Row>
           </FilterButtonContainer>
         </Col>
       </Row>
     </Container>
   );
 };
-
+const containerStyles = {
+  backgroundColor: "white", 
+  padding: "1rem 1rem", 
+  borderRadius: "8px", 
+  width: "100%",
+}
 const Subreddit = styled.div`
   display: flex;
   align-items: center;
@@ -99,13 +112,13 @@ const Title = styled.h4`
   margin: 0 0.75rem;
 `;
 const FilterButtonContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
   color: #545454;
   padding-right: 1rem;
 `;
 const HotButton = styled.button`
   display: flex;
+  width: 100%;
   border-radius: 0.5rem;
   justify-content: center;
   align-items: center;
@@ -118,6 +131,7 @@ const HotButton = styled.button`
 `;
 const NewButton = styled.button`
   display: flex;
+  width: 100%;
   border-radius: 0.5rem;
   justify-content: center;
   align-items: center;
@@ -130,6 +144,7 @@ const NewButton = styled.button`
 `;
 const TopButton = styled.button`
   display: flex;
+  width: 100%;
   border-radius: 0.5rem;
   justify-content: center;
   align-items: center;

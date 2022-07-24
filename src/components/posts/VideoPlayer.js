@@ -1,7 +1,6 @@
 import React from "react";
 
 const VideoPlayer = ({ data, title }) => {
-  const thumbnail = data.thumbnail;
   const src = data["fallback_url"];
   return (
     <video width="100%" controls>

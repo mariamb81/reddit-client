@@ -96,7 +96,7 @@ export const getPostsByFilter = async ({ subreddit, filter }) => {
 const getPostsBySearchQuery = async (searchQuery) => {
   endpoint = `/search`;
 
-  let url = base_url + endpoint + ".json" + "?q=" + searchQuery;
+  let url = `${base_url}${endpoint}.json?q=${searchQuery}`;
   let response = await fetch(url);
   let data = await response.json();
   return data.data;

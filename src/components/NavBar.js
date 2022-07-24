@@ -21,7 +21,10 @@ const NavBar = () => {
           <SearchBar />
         </Col>
         <Col sm={1} xs={2} style={{ alignItems: "center" }}>
-          <Button>
+          <Button
+          id="information"
+          aria-label="information about this app"
+          >
             <FiMoreVertical size={"2em"} />
           </Button>
         </Col>

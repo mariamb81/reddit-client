@@ -26,7 +26,7 @@ const DisplayPosts = () => {
     <Wrapper>
       {posts.map((post, idx) => (
         <div key={idx}>
-          <Post postData={post} />
+          <Post postData={post} id={idx}/>
         </div>
       ))}
     </Wrapper>
@@ -35,7 +35,6 @@ const DisplayPosts = () => {
 const Wrapper = styled.div`
   background-color: #fafafa;
   justify-content: center;
-  margin: 1rem 0;
   border-radius: 8px;
 `;
 export default DisplayPosts;

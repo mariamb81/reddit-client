@@ -10,10 +10,3 @@
 #view-more-btn {
   margin-bottom: 1rem;
 }
-
-#upvote-btn:hover {
-  color: #ff6d00;
-}
-#downvote-btn:hover {
-  color: #5655f0;
-}
