@@ -23,7 +23,7 @@ const NavBar = () => {
         <Col sm={1} xs={2} style={{ display: "flex", alignItems: "center" }}>
           <Information
             id="information"
-            aria-aria-describedby="see more information about this app"
+            aria-describedby="see more information about this app"
             href="https://github.com/mariamb81/reddit-client#what-it-does"
             target="_blank"
           >
