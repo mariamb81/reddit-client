@@ -25,10 +25,10 @@ const SearchBar = () => {
         onChange={handleInputChange}
       />
       <div className="search logo">
-        <SearchButton 
-        id="search-btn" 
-        onClick={handleSearch}
-        aria-label="search"
+        <SearchButton
+          id="search-btn"
+          onClick={handleSearch}
+          aria-label="search"
         >
           <BsSearch size={"1.5em"} color={``} />
         </SearchButton>

@@ -51,10 +51,7 @@ const Subreddit = ({ subredditData, type = "Home" }) => {
     );
   } else {
     return (
-      <Wrapper 
-      id={subredditData.title} 
-      onClick={handleSelectSubreddit}
-      >
+      <Wrapper id={subredditData.title} onClick={handleSelectSubreddit}>
         <Icon subredditIcon={subredditData.icon}></Icon>
         <div className="title">
           <SubredditTitle>{subredditData["display_name"]}</SubredditTitle>

@@ -54,31 +54,31 @@ const FilterBar = () => {
           <FilterButtonContainer>
             <Row>
               <Col sm={4} xs={4}>
-              <HotButton
-              id="hot-btn"
-              onClick={() => handlefilterCurrentSubreddit("hot")}
-            >
-              <FireIcon />
-              <ButtonText>Hot</ButtonText>
-            </HotButton>
+                <HotButton
+                  id="hot-btn"
+                  onClick={() => handlefilterCurrentSubreddit("hot")}
+                >
+                  <FireIcon />
+                  <ButtonText>Hot</ButtonText>
+                </HotButton>
               </Col>
               <Col sm={4} xs={4}>
-              <NewButton
-              id="new-btn"
-              onClick={() => handlefilterCurrentSubreddit("new")}
-            >
-              <BiBadge/>
-              <ButtonText>New</ButtonText>
-            </NewButton>
+                <NewButton
+                  id="new-btn"
+                  onClick={() => handlefilterCurrentSubreddit("new")}
+                >
+                  <BiBadge />
+                  <ButtonText>New</ButtonText>
+                </NewButton>
               </Col>
               <Col sm={4} xs={4}>
-              <TopButton
-              id="top-btn"
-              onClick={() => handlefilterCurrentSubreddit("top")}
-            >
-              <BiUpArrowAlt />
-              <ButtonText>Top</ButtonText>
-            </TopButton>
+                <TopButton
+                  id="top-btn"
+                  onClick={() => handlefilterCurrentSubreddit("top")}
+                >
+                  <BiUpArrowAlt />
+                  <ButtonText>Top</ButtonText>
+                </TopButton>
               </Col>
             </Row>
           </FilterButtonContainer>
@@ -88,11 +88,11 @@ const FilterBar = () => {
   );
 };
 const containerStyles = {
-  backgroundColor: "white", 
-  padding: "1rem 1rem", 
-  borderRadius: "8px", 
+  backgroundColor: "white",
+  padding: "1rem 1rem",
+  borderRadius: "8px",
   width: "100%",
-}
+};
 const Subreddit = styled.div`
   display: flex;
   align-items: center;

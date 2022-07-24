@@ -16,5 +16,5 @@ export const allReducers = {
   subreddits: subredditsReducer,
   comments: commentsReducer,
   search: searchReducer,
-}
+};
 export default store;

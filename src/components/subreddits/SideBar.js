@@ -35,9 +35,7 @@ const SideBar = () => {
         ))}
       </SubredditsContainer>
       <ButtonContainer>
-        <ViewMoreButton 
-        id="view-more-btn" 
-        onClick={handleViewMore}>
+        <ViewMoreButton id="view-more-btn" onClick={handleViewMore}>
           <p style={{ margin: "0px" }}>View More</p>
         </ViewMoreButton>
       </ButtonContainer>

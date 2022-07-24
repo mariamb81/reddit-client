@@ -26,7 +26,7 @@ const DisplayPosts = () => {
     <Wrapper>
       {posts.map((post, idx) => (
         <div key={idx}>
-          <Post postData={post} id={idx}/>
+          <Post postData={post} id={idx} />
         </div>
       ))}
     </Wrapper>

@@ -19,7 +19,7 @@ function App() {
         <Col sm={4}>
           <SideBar />
         </Col>
-        <Col style={{margin: " 0 1rem"}}>
+        <Col style={{ margin: " 0 1rem" }}>
           <FilterBar />
           <DisplayPosts />
         </Col>
