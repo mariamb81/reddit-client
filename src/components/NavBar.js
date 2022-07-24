@@ -20,10 +20,15 @@ const NavBar = () => {
         <Col sm={7} xs={9}>
           <SearchBar />
         </Col>
-        <Col sm={1} xs={2} style={{ alignItems: "center" }}>
-          <Button id="information" aria-label="information about this app">
+        <Col sm={1} xs={2} style={{ display: "flex", alignItems: "center" }}>
+          <Information
+            id="information"
+            aria-aria-describedby="see more information about this app"
+            href="https://github.com/mariamb81/reddit-client#what-it-does"
+            target="_blank"
+          >
             <FiMoreVertical size={"2em"} />
-          </Button>
+          </Information>
         </Col>
       </Row>
     </Container>
@@ -44,11 +49,15 @@ const Logo = styled.img`
   height: 50px;
   width: 50px;
 `;
-const Button = styled.button`
+const Information = styled.a`
+  width: 100%;
+  height: fit-content;
   background-color: white;
   border: none;
-  color: ##545454 !important;
-  margin-top: 8px;
+  color: #545454 !important;
+  :hover {
+    color: black;
+  }
 `;
 
 export default NavBar;

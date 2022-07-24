@@ -6,7 +6,7 @@ import { selectSubreddit } from "./subredditsSlice";
 import { fetchPostsBySubreddit, fetchPosts } from "../posts/postsSlice";
 import Placeholder from "react-bootstrap/Placeholder";
 
-const Subreddit = ({ subredditData, type = "Home" }) => {
+const Subreddit = ({ subredditData, type = "Home", id }) => {
   const dispatch = useDispatch();
   const handleSelectSubreddit = () => {
     if (type === "Home") {
@@ -31,7 +31,11 @@ const Subreddit = ({ subredditData, type = "Home" }) => {
 
   if (type === "Home") {
     return (
-      <Wrapper id="home-btn" onClick={handleSelectSubreddit}>
+      <Wrapper
+        id="home-btn"
+        onClick={handleSelectSubreddit}
+        className="subreddit-btn clicked"
+      >
         <TiHome size={"2rem"} />
         <div className="title">
           <SubredditTitle>Home</SubredditTitle>
@@ -51,7 +55,11 @@ const Subreddit = ({ subredditData, type = "Home" }) => {
     );
   } else {
     return (
-      <Wrapper id={subredditData.title} onClick={handleSelectSubreddit}>
+      <Wrapper
+        id={id}
+        onClick={handleSelectSubreddit}
+        className="subreddit-btn"
+      >
         <Icon subredditIcon={subredditData.icon}></Icon>
         <div className="title">
           <SubredditTitle>{subredditData["display_name"]}</SubredditTitle>
@@ -68,7 +76,8 @@ const Wrapper = styled.button`
   margin: 0.75rem 0;
   padding-left: 1rem;
   border: none;
-  :hover {
+  :hover,
+  :focus {
     border-left: 4px solid #5655f0;
     color: #5655f0;
     background-color: #d8d8fc;

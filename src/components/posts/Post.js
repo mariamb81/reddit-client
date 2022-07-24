@@ -13,8 +13,10 @@ import DisplayComments from "../comments/DisplayComments";
 import { formatTSC } from "../../functions/utilities";
 
 const Post = ({ postData, id }) => {
+  const initialScore = postData.score;
   const [iconImg, setIconImg] = useState("");
   const [commentsOpen, setCommentsOpen] = useState(false);
+  const [score, setScore] = useState(initialScore);
   const dispatch = useDispatch();
   const postsStatus = useSelector((state) => state.posts.status);
   const commentsStatus = useSelector(selectCommentsStatus);
@@ -25,7 +27,7 @@ const Post = ({ postData, id }) => {
       .then((data) => {
         setIconImg(data);
       })
-      .catch((err) => console.log(err));
+      .catch();
   }, [iconImg, postsStatus, postData.subreddit.name]);
   // const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const authorDateString = `Posted by: ${postData.author} ${formatTSC(
@@ -40,7 +42,6 @@ const Post = ({ postData, id }) => {
       setCommentsOpen(false);
     }
   };
-
   const renderComments = () => {
     if (commentsOpen && commentsStatus !== "loading") {
       //comments ready
@@ -72,12 +73,21 @@ const Post = ({ postData, id }) => {
     return (
       <div>
         <MdLink size={"1.3rem"}></MdLink>
-        <a href={external_url} target="_blank" rel="noreferrer">
+        <Link href={external_url} target="_blank" rel="noreferrer">
           {postData.domain}
-        </a>
+        </Link>
       </div>
     );
   };
+  const changeScore = (method) => {
+    if (method === "increment") {
+      setScore((score) => initialScore + 1);
+    }
+    if (method === "decrement") {
+      setScore((score) => initialScore - 1);
+    }
+  };
+
   if (postsStatus !== "loading") {
     return (
       <Wrapper>
@@ -96,11 +106,19 @@ const Post = ({ postData, id }) => {
         {postData["is_ext"] ? renderLink() : <></>}
         <Footer>
           <Upvotes>
-            <UpvoteButton id={`upvote-${id}`} aria-label="upvote">
+            <UpvoteButton
+              id={`upvote-${id}`}
+              aria-label="upvote"
+              onClick={() => changeScore("increment")}
+            >
               <TbArrowBigTop size={"1.3rem"} />
             </UpvoteButton>
-            <Subtitle>{postData.score}</Subtitle>
-            <DownvoteButton id={`downvote-${id}`} aria-label="downvote">
+            <Subtitle>{score}</Subtitle>
+            <DownvoteButton
+              id={`downvote-${id}`}
+              aria-label="downvote"
+              onClick={() => changeScore("decrement")}
+            >
               <TbArrowBigDown size={"1.3rem"} />
             </DownvoteButton>
           </Upvotes>
@@ -224,6 +242,9 @@ const CommentsButton = styled.button`
   :hover {
     color: #5655f0;
   }
+  :focus {
+    color: #5655f0;
+  }
 `;
 // const Button = styled.button`
 //   border: none;
@@ -232,14 +253,16 @@ const CommentsButton = styled.button`
 const UpvoteButton = styled.button`
   border: none;
   background-color: white;
-  :hover {
+  :hover,
+  :focus {
     color: #ff6d00;
   }
 `;
 const DownvoteButton = styled.button`
   border: none;
   background-color: white;
-  :hover {
+  :hover,
+  :focus {
     color: #5655f0;
   }
 `;
@@ -250,8 +273,15 @@ const Thumbnail = styled.img`
 const CommentsDisplay = styled.div`
   background-color: white;
   width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 const PlaceholderDiv = styled.div`
   width: 50%;
+`;
+const Link = styled.a`
+  :visited {
+    color: purple;
+  }
 `;
 export default Post;

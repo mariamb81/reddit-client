@@ -123,7 +123,8 @@ const HotButton = styled.button`
   justify-content: center;
   align-items: center;
   border: none;
-  :hover {
+  :hover,
+  :focus {
     background-color: #ffcb99;
     color: #c43c00;
   }
@@ -137,7 +138,8 @@ const NewButton = styled.button`
   align-items: center;
   background-color: white;
   border: none;
-  :hover {
+  :hover,
+  :focus {
     color: #a19101;
     background-color: #fffb99;
   }
@@ -150,7 +152,8 @@ const TopButton = styled.button`
   align-items: center;
   background-color: white;
   border: none;
-  :hover {
+  :hover,
+  :focus {
     background-color: #cbd5ff;
     color: #0039cb;
   }

@@ -30,7 +30,7 @@ const SideBar = () => {
         </SubredditDiv>
         {subreddits.map((subreddit, idx) => (
           <SubredditDiv key={idx}>
-            <Subreddit type="subreddit" subredditData={subreddit} />
+            <Subreddit type="subreddit" subredditData={subreddit} id={idx} />
           </SubredditDiv>
         ))}
       </SubredditsContainer>
