@@ -22,7 +22,7 @@ const SideBar = () => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper className="sidebar">
       <Title>Subreddits</Title>
       <SubredditsContainer>
         <SubredditDiv>

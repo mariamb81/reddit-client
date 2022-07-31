@@ -47,7 +47,7 @@ const FilterBar = () => {
     );
   };
   return (
-    <Container style={containerStyles}>
+    <Container style={containerStyles} className="filterbar">
       <Row>
         <Col sm={7}>{renderBreadcrumb()}</Col>
         <Col sm={5}>

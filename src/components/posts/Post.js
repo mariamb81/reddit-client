@@ -105,7 +105,7 @@ const Post = ({ postData, id }) => {
         </Content>
         {postData["is_ext"] ? renderLink() : <></>}
         <Footer>
-          <Upvotes>
+          <Upvotes className="upvotes">
             <UpvoteButton
               id={`upvote-${id}`}
               aria-label="upvote"

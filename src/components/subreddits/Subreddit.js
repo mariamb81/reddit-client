@@ -34,7 +34,6 @@ const Subreddit = ({ subredditData, type = "Home", id }) => {
       <Wrapper
         id="home-btn"
         onClick={handleSelectSubreddit}
-        className="subreddit-btn clicked"
       >
         <TiHome size={"2rem"} />
         <div className="title">

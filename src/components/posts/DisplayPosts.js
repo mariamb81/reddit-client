@@ -23,10 +23,10 @@ const DisplayPosts = () => {
     );
   }
   return (
-    <Wrapper>
+    <Wrapper className="posts-wrapper">
       {posts.map((post, idx) => (
         <div key={idx}>
-          <Post postData={post} id={idx} />
+          <Post postData={post} id={idx} className='post'/>
         </div>
       ))}
     </Wrapper>
