@@ -24,13 +24,13 @@ Reddit Lite Client allows users to view posts from reddit. Users can filter and 
 
 ### Search results page
 
-- Search for post using the search bar at the top of the page
+- Search for posts using the search bar at the top of the page
 
 ![search results](/src/assets/screenshots/search.png)
 
 ### Comments
 
-- Click the comments button at the bottom of the post to the comments under the post
+- Click the comments button at the bottom of the post to see the comments under the post
 - Click the up or down button to like or dislike a post
 
 ![comments](/src/assets/screenshots/comments.png)
